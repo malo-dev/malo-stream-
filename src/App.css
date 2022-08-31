@@ -1,0 +1,56 @@
+body{
+    background-image: linear-gradient(to right, rgba(75, 180, 206, 0.849), rgb(25, 56, 82));
+}
+.App{
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  color: white;
+  max-width: 99%;
+  max-height: 95%;
+  background-image: linear-gradient(to right, rgba(206, 75, 195, 0.849), rgba(22, 9, 29, 0.726));
+}
+/* here i am putting login part */
+.login{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: linear-gradient(to right, rgba(75, 180, 206, 0.849), rgb(25, 56, 82));
+  display: grid;
+  text-align: center;
+  border-radius: 20px;
+  height: 500px;
+  width: 400px;
+}
+.stream-span{
+  color: rgba(206, 75, 195, 0.849);
+}
+.login img{
+  height: 40px;
+  border: 2px solid rgba(75, 180, 206, 0.849);
+  border-radius: 5px;
+}
+.login button{
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  height: 43px;
+  position: relative;
+  bottom: 16px;
+  width: 300px;
+  border: 2px solid rgba(75, 180, 206, 0.849);
+  background-image: linear-gradient(to right, rgba(75, 180, 206, 0.849), rgb(25, 56, 82));
+}
+.login button:hover{
+   background-image: linear-gradient(to right, rgba(206, 75, 195, 0.849), rgba(22, 9, 29, 0.726));
+}
+.login p{
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  color: wheat;
+  font-weight: 200;
+  padding-top: 10px;
+  text-align: center;
+}
+
