@@ -28,6 +28,7 @@ export const SignInWithGoogle = () => {
     localStorage.setItem("Name", name)
     localStorage.setItem("Email", email)
     localStorage.setItem("ProfilePic", profilePic)
+    location.href="/librairie"
     
   }).catch(error => {
     console.log(error);

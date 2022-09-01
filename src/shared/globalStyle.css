@@ -1,0 +1,6 @@
+.screem-container{
+	width: calc(100% - 100px);
+	height: 100%;
+	background: #1E2A3E;
+	border-radius: 30px;
+}
