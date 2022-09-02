@@ -1,13 +1,13 @@
 import React from 'react'
 import './Home.css' 
-import Login from '../../component/Login/Login'
-import Sidebar from '../../component/sidebar'
-import Librairie from '../Librairie/Librairie'
+import Login from '../../components/Login/Login'
+import Sidebar from '../../components/sidebar'
+import Librairie from '../Library/Librairie'
 import Favorie from '../Favorie/Favorie'
 import Seach from '../Search/Seach'
 import Feed from '../Feed/Feed'
 import Player from '../PLayer/Player'
-import Trending from '../Trendi/Trending'
+import Trending from '../Trending/Trending'
 import { BrowserRouter as Router, Routes,Route } from 'react-router-dom'
 const Home = () => {
   return (

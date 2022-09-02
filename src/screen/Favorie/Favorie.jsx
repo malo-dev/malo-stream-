@@ -2,7 +2,7 @@ import React from 'react'
 
 const Favorie = () => {
   return (
-	<div>Favorie</div>
+	<div className='screem-container'>Favorie</div>
   )
 }
 

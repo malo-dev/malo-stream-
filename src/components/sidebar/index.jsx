@@ -1,5 +1,5 @@
 import React from 'react'
-import alogo from '../../assets/alogo.png'
+import alogo from '../../assets/logo.png'
 import Sidebuton from './sidebarButton/Sidebuton'
 import './sidebar.css'
 import { MdFavorite } from "react-icons/md"
