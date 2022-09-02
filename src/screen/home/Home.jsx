@@ -8,7 +8,9 @@ import Seach from '../Search/Seach'
 import Feed from '../Feed/Feed'
 import Player from '../PLayer/Player'
 import Trending from '../Trending/Trending'
-import { BrowserRouter as Router, Routes,Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+
 const Home = () => {
   return (
 	  <Router>
@@ -16,6 +18,7 @@ const Home = () => {
 			  <Sidebar/>
 			  <Routes>
 				  <Route path='/' element={<Login />} />
+				  
 			  		<Route path='/librairie' element={<Librairie />} />
 			  		<Route path='/favorites' element={<Favorie />} />
 			  		<Route path='/search' element={<Seach />} />

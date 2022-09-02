@@ -51,3 +51,16 @@ box-sizing: border-box;
   background-color: #000000;
 }
 
+.login-url{
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  position: relative;
+  top: 30px;
+  right: 210px;
+  cursor: pointer;
+}
+.login-url:hover{
+  text-decoration: underline;
+  color: rgba(206, 75, 195, 0.849);
+}
