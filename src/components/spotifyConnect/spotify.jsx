@@ -1,19 +1,19 @@
+import axios from "axios";
 export const authEndpoint = "https://accounts.spotify.com/authorize";
-//  here i put my id in order to get  a malo id which is helping 
 const clientId = "6662ade64fab4fb098674e489d97a6cb";
-// Here is the link i get from spotify client side
 const redirectUri = "http://localhost:5174/";
-//   here is some element in url which i wanna use in order to take some infos about user
 const scopes = [
   "user-read-currently-playing",
   "user-read-recently-played",
   "user-read-playback-state",
   "user-top-read",
   "user-modify-playback-state",
-"user-library-read",
+  "user-library-read",
  " playlist-read-private"
 ];
-//  This function helps me to get in my url a whole url 
+
+export const LoginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
+
 export const getTokenFromResponse = () => {
   //  here i am going to take url from # 
   return window.location.hash
@@ -31,5 +31,14 @@ export const getTokenFromResponse = () => {
       return initial;
     }, {});
 };
-//  that is my final url which will be use in Login file .jsx
-export  const  LoginUrl  = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
+
+
+export const Api = axios.create({
+   baseURL :"https://api.spotify.com/v1"
+})
+export const seturl = () => {
+  Api.interceptors.request.use(async (config) => {
+    config.headers.Authorization = "Bearer" + token;
+    return config;
+  })
+}
