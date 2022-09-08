@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Search.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -18,7 +19,7 @@ const Feed = () => {
       }
       fetch(`https://api.spotify.com/v1/search?q=${artiste}&type=artist&limit=10&offset=0` + '&type=artist', Settings).then(res => res.json())
         .then(data => {
-
+            console.log (data)
           const imagesItem = data.artists.items.map(value => {
             return value.images
           })
@@ -40,6 +41,12 @@ const Feed = () => {
     useEffect(() => {
         searchFunc()
     }, [])
+  
+    const navigate = useNavigate()
+  const playPlaylist = (id) => {
+    navigate('/player', {state : {id:id}})
+  }
+  
   return (
     <div className='screem-container'>
       <input type="text" className='searcher' name="search" placeholder='search artist...' onKeyDown={(e) => {
@@ -47,8 +54,11 @@ const Feed = () => {
         searchFunc()
       }} />
      
-      <div className='images-container'>
+      <div className='images-container' onClick={() => {
+          playPlaylist(img.id)
+        }}>
         {img}
+      
       </div>
     </div>
   )
