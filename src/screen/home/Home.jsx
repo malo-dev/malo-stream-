@@ -10,53 +10,43 @@ import Player from '../PLayer/Player'
 import Trending from '../Trending/Trending'
 
 import { useState, useEffect } from 'react'
-import { getTokenFromResponse } from '../../components/spotifyConnect/spotify'
-import { seturl } from '../../components/spotifyConnect/spotify'
+import { setClientToken } from '../../components/spotifyConnect/spotify'
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const Home = () => {
 	
 	const [token, setToken] = useState("")
+	
 	useEffect(() => {
+		const token =window.localStorage.getItem('token')
 		const hash = window.location.hash
-		const token = localStorage.getItem("token")
-		location.hash = "";
+		window.location.hash=""
 		if (!token && hash) {
-			const _token = hash.split("&")[0].split("#")[1]
-			localStorage.setItem("token", _token)
-			console.log(token);
-			setToken(_token);
-			seturl(_token);
+			const _token = hash.split("&")[0].split("=")[1]
+			window.localStorage.setItem("token", _token)
+			setToken(_token)
+			setClientToken(_token)
 		} else {
 			setToken(token)
-			seturl(token)
+			setClientToken(token)
 		}
 		
-		// const token = localStorage.getItem('token');
-		// const hash = getTokenFromResponse();
-		// location.hash = "";
-		// setToken(token)
-		// const _token = hash.access_token
-		 	
-		// console.log(_token);
-		// localStorage.setItem('token', _token)
-		// if (!token && hash) {
-		// 	const _token = hash.access_token
-		// 	console.log(_token);
-		// 	localStorage.setItem('token', _token)
-		// 	setToken(_token)
-		// 	seturl(_token)
-		// } else {
-			
-		// 	setToken(token)
-		// 	seturl(token)
+		// if (hash) {
+		// 	if (token ) {
+		// 	localStorage.setItem('token', token)
+		// 		console.log(token)
+				
+		// 		setToken(token)
+		// 		seturl(token)
 		// }
-
-		// console.log(hash.split("&")[0].split("#")[1])
+		// }
+		
+		
 	}, [])
 	
 	
-  return  (token ?(<Login/>) :
+  return  (!token ?(<Login/>) :
 	  <Router>
 		<div className='main-body'>
 			   <Sidebar/>

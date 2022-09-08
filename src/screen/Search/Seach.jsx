@@ -2,7 +2,10 @@ import React from 'react'
 
 const Seach = () => {
   return (
-	<div className='screem-container'>Seach</div>
+    <div className='screem-container'>
+      <input type="text" name="search" id="serch" />
+    </div>
+    
   )
 }
 
