@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Librairie = () => {
   const [playlists, setPlaylist] = useState(null)
-  const [image,setimages] = useState(null)
+ 
   useEffect(()=>{
       const accessToken = localStorage.getItem('token')
       let Settings = {
@@ -18,35 +18,15 @@ const Librairie = () => {
         }
       }
     
-      fetch(`https://api.spotify.com/v1/users/smedjan/playlists?offset=0&limit=10`, Settings).then(res => res.json())
+      fetch(`https://api.spotify.com/v1/users/smedjan/playlists?offset=0&limit=30`, Settings).then(res => res.json())
         .then(data => {
-          
+          console.log(data)
           const imagesItem = data.items.map(value => {
             return value
           })
        return setPlaylist(imagesItem)
           
-        })
-       fetch(`https://api.spotify.com/v1/users/smedjan/playlists?offset=0&limit=10`, Settings).then(res => res.json())
-        .then(data => {
-          const imagesItem = data.items.map(value => {
-            return  value
-          })
-          const imagesPlaylist= imagesItem.map(element => {
-           const l = { ...element.images[0] }
-           const UrlImage = l.url
-            return <img src={UrlImage} alt="no images is loading" className='playlist-images img' />
-            
-          
-               
-          });
-          
-      return setimages(imagesPlaylist);
-         
-        })
-        
-
-    
+        })    
   }, [])
   const navigate = useNavigate()
   const playPlaylist = (id) => {
@@ -61,7 +41,7 @@ const Librairie = () => {
         <div key={playlist.id} className='playlist-card' onClick={() => {
           playPlaylist(playlist.id)
         }}>
-           
+          <img src={{...playlist.images[0]}.url } alt="no images is loading" className='playlist-images img' />
           <p className='playlist-title'>{playlist.name}</p>
           <p className='playlist-subtitle'>{playlist.tracks.total} songs</p>
 
@@ -70,7 +50,7 @@ const Librairie = () => {
                 <AiFillPlayCircle/>
             </IconContext.Provider> 
           </div>
-            {image}
+           
         </div>
       )} 
        

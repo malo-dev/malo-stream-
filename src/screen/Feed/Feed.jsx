@@ -1,13 +1,17 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import './Search.css'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { IconContext } from 'react-icons'
+import { AiFillPlayCircle } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
+
+
 const Feed = () => {
-  const [img, setImg] = useState([])
+
+  const [plist,setPlaylists]=useState("benjamin")
+  const [playlists, setPlaylist] = useState(null)
   
-  const [artiste, setArtist] = useState("yeshua")
-  const searchFunc = () => {
+  useEffect(()=>{
       const accessToken = localStorage.getItem('token')
       let Settings = {
         method: 'GET',
@@ -15,51 +19,53 @@ const Feed = () => {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + accessToken
         }
-  
       }
-      fetch(`https://api.spotify.com/v1/search?q=${artiste}&type=artist&limit=10&offset=0` + '&type=artist', Settings).then(res => res.json())
+    
+      fetch(`https://api.spotify.com/v1/users/${plist}/playlists?offset=0&limit=20`, Settings).then(res => res.json())
         .then(data => {
-            console.log (data)
-          const imagesItem = data.artists.items.map(value => {
-            return value.images
-          })
-          const arrayItems = imagesItem.map(imageValue => {
-            return [...imageValue][1]
-          })
-          const array = arrayItems.map(image => {
           
-            return { ...image }
+          const imagesItem = data.items.map(value => {
+            return value
           })
-          const malo = array.map(value => {
-            
-            return <img className='image-artiste' src={value.url} alt="artiste image"  />
-          })
-          return setImg(malo)
+       return setPlaylist(imagesItem)
+          
         })
-  }    
-   
-    useEffect(() => {
-        searchFunc()
-    }, [])
-  
-    const navigate = useNavigate()
+
+        
+
+    
+  }, [])
+  const navigate = useNavigate()
   const playPlaylist = (id) => {
     navigate('/player', {state : {id:id}})
   }
-  
   return (
     <div className='screem-container'>
-      <input type="text" className='searcher' name="search" placeholder='search artist...' onKeyDown={(e) => {
-        setArtist(e.target.value)
-        searchFunc()
-      }} />
      
-      <div className='images-container' onClick={() => {
-          playPlaylist(img.id)
-        }}>
-        {img}
       
-      </div>
+      <div className='librairy-body'>
+           <input type="text" className='searcher' name="search" placeholder='search artist...' onKeyDown={(e) => {
+        setPlaylists(e.target.value)
+        
+      }} />
+      {playlists ?.map((playlist) => 
+        <div key={playlist.id} className='playlist-card' onClick={() => {
+          playPlaylist(playlist.id)
+        }}>
+          <img src={{...playlist.images[0]}.url } alt="no images is loading" className='playlist-images img' />
+          <p className='playlist-title'>{playlist.name}</p>
+          <p className='playlist-subtitle'>{playlist.tracks.total} songs</p>
+
+            <div className="playlist-fade">
+            <IconContext.Provider value={{ size: "50px" ,color : "white" }}>
+                <AiFillPlayCircle/>
+            </IconContext.Provider> 
+          </div>
+           
+        </div>
+      )} 
+       
+    </div> 
     </div>
   )
 }

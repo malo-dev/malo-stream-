@@ -30,19 +30,7 @@ const Home = () => {
 		} else {
 			setToken(token)
 			setClientToken(token)
-		}
-		
-		// if (hash) {
-		// 	if (token ) {
-		// 	localStorage.setItem('token', token)
-		// 		console.log(token)
-				
-		// 		setToken(token)
-		// 		seturl(token)
-		// }
-		// }
-		
-		
+		}	
 	}, [])
 	
 	

@@ -1,0 +1,4 @@
+   <input type="text" className='searcher' name="search" placeholder='search artist...' onKeyDown={(e) => {
+        setArtist(e.target.value)
+        searchFunc()
+      }} />

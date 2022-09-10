@@ -1,0 +1,56 @@
+.queue-container{
+	width: 100%;
+	height: 35%;
+	border-radius: 30px;
+	border-top-right-radius: 0px;
+	opacity: 1;
+	background: #3e61d6;
+	border-radius: 30px;
+	background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #3e61d6 40px),
+	repeating-radial-gradient(#23365655, #4767d0);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.queue{
+	height: 85%;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 80%;
+}
+
+.upNext{
+	font-size: 20px;
+	color: white;
+	text-align: left;
+	margin: 0px;
+	font-weight: 700;
+	margin: 10px 0px ;
+}
+.items-list-name {
+	font-weight: 500;
+	width: 100%;
+	font-size: 14px;
+	justify-content: space-between;
+	padding: 5px 0;
+	cursor: pointer;
+	transition: all  0.2s ease;
+	
+}
+.items-list-name:hover{
+	transform: scale(0.92);
+}
+.items-list-name p{
+	margin: 0px;
+	color: white;
+}
+.list-musique{
+	height: 80%;
+	overflow-y: auto;
+}
+.trackName{
+	width: 75%;
+	height: 100%;
+	text-overflow: ellipsis;
+	
+}
