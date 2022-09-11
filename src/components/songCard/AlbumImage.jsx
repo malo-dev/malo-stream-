@@ -1,7 +1,7 @@
 import React from 'react'
 import './AlbumImage.css'
 const AlbumImage = (url) => {
-  console.log(url)
+ 
   return (
   
     <div className='albumimage flex'>

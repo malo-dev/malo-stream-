@@ -48,6 +48,9 @@
 	height: 80%;
 	overflow-y: auto;
 }
+.list-musique::-webkit-scrollbar{
+	display: none;
+}
 .trackName{
 	width: 75%;
 	height: 100%;

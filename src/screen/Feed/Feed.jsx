@@ -6,13 +6,15 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
 
 
-const Feed = () => {
 
+
+const Feed = () => {
+  
   const [plist,setPlaylists]=useState("benjamin")
   const [playlists, setPlaylist] = useState(null)
   
-  useEffect(()=>{
-      const accessToken = localStorage.getItem('token')
+  const searchFunction = () => {
+        const accessToken = localStorage.getItem('token')
       let Settings = {
         method: 'GET',
         headers: {
@@ -30,10 +32,12 @@ const Feed = () => {
        return setPlaylist(imagesItem)
           
         })
+}
+  
 
-        
-
-    
+  
+  useEffect(()=>{
+      searchFunction()
   }, [])
   const navigate = useNavigate()
   const playPlaylist = (id) => {
@@ -45,7 +49,9 @@ const Feed = () => {
       
       <div className='librairy-body'>
            <input type="text" className='searcher' name="search" placeholder='search artist...' onKeyDown={(e) => {
-        setPlaylists(e.target.value)
+         console.log(e.target.value);
+          setPlaylists(e.target.value)
+          searchFunction()
         
       }} />
       {playlists ?.map((playlist) => 

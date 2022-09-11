@@ -1,10 +1,10 @@
 import React from 'react'
 import './Queue.css'
-const Queue = ({ tracks, setcurrentIndex }) => {
-	
-	const paragraphe = tracks.map((element,index) => {
+const Queue = ({ tracks, setcurrentIndex }) => {	
+const paragraphe = tracks.map((element, index) => {
+		
 		return (
-			<div className='items-list-name flex' onClick={()=>{setcurrentIndex(index)}}>
+			<div className='items-list-name flex' key={element?.track?.id} onClick={()=>{setcurrentIndex(index)}}>
 				<p className='trackName'>{ element?.track?.name}</p> 
 				 <p>00 : 30</p>
 			</div>
