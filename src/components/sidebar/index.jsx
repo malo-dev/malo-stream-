@@ -30,10 +30,7 @@ const Sidebar = () => {
       })
       
     }
-  
-    // apiClient.get("me").then((user) => {
-    //   console.log(user);
-    // })
+
   },[])
  
   return (

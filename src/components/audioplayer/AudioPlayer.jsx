@@ -3,14 +3,26 @@ import './audioplayer.css'
 import ProgressBarCircle from '../audioplayercomponnent/progressBarcircle'
 import Controls from '../audioplayercomponnent/Controls/Controls'
 import WaveAnimation from '../audioplayercomponnent/waveAnimation/WaveAnimation'
-const AudioPlayer = (currentTrack,isPlaying) => {
+import { useState, useRef, useEffect } from "react";
+const AudioPlayer = ( currentTrack, currentIndex, setCurrentIndex, total ) => {
+		
+//   var audioSrc = total[currentIndex]?.track.externals
+	
+    // const [isPlaying, setIsPlaying] = useState(false);
+    // const [trackProgress, setTrackProgress] = useState(0);
+	
+	// var audioSrc = total[currentIndex]?.track;
+	// console.log(audioSrc)
+
 	const array = currentTrack?.currenName?.album
+	
 	const valueItem = { ...array }
 	const artists = [];
+	
 	valueItem?.artists?.forEach(element => {
 		return artists.push(element.name )
 	});
-	console.log(currentTrack?.currenName?.album?.artists)
+	// console.log(currentTrack?.currenName?.album?.artists)
 	
   return (
 	  <div className='player-body flex'>
