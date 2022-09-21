@@ -1,7 +1,8 @@
+
 import axios from "axios";
 
-export const authEndpoint = "https://accounts.spotify.com/authorize";
-const clientId = "6662ade64fab4fb098674e489d97a6cb";
+export const authEndpoint = import.meta.env.VITE_APP_AUTH_ENDPOINT;
+const clientId = import.meta.env.VITE_APP_CLIENT_ID;
 const redirectUri = "http://localhost:5174/";
 const scopes = [
   "user-read-currently-playing",

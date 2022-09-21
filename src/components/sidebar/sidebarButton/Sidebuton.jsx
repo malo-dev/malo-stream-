@@ -11,7 +11,7 @@ const Sidebuton = (props) => {
   const isActive = Location.pathname === props.to ? true : false
   
   const btnClass = isActive ? "btn-body active" : "btn-body"
-   console.log(btnClass);
+   
   return (
     
       <Link to={props.to} className={btnClass}>

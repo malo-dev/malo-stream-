@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css' 
 import Login from '../../components/Login/Login'
+import SignOut from '../../components/Login/SignOut'
 import Sidebar from '../../components/sidebar'
 import Librairie from '../Library/Librairie'
 import Favorie from '../Favorie/Favorie'
@@ -22,7 +23,7 @@ const Home = () => {
 		const token =window.localStorage.getItem('token')
 		const hash = window.location.hash
 		window.location.hash=""
-		if (!token && hash) {
+		if (!token && hash ) {
 			const _token = hash.split("&")[0].split("=")[1]
 			window.localStorage.setItem("token", _token)
 			setToken(_token)
@@ -44,7 +45,8 @@ const Home = () => {
 			  		<Route path='/search' element={<Seach />} />
 			  		<Route path='/feed' element={<Feed />} />
 			  		<Route path='/player' element={<Player />} />
-			  		<Route path='/trending' element={<Trending/>} />
+				    <Route path='/trending' element={<Trending />} />
+				  <Route path='/SignOut' element={<SignOut/>} />
 			  	</Routes> 
 			</div> 
 	  </Router>

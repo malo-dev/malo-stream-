@@ -19,23 +19,23 @@
   border-radius: 5px;
 } 
 
-.login button{
-  
+.login button,.login-url{
+  text-align: center;
   cursor: pointer;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 50px;
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 5px;
   height: 43px;
-  position: relative;
+  /* position: relative;
   bottom: 16px;
-  left: 20px;
-  width: 60%;
+  left: 20px; */
+  width: 100%;
   border: 2px solid rgba(75, 180, 206, 0.849);
   background-image: linear-gradient(to right, rgba(75, 180, 206, 0.849), rgb(25, 56, 82));
 }
-.login button:hover{
+.login-url:hover{
    background-image: linear-gradient(to right, rgba(206, 75, 195, 0.849), rgba(22, 9, 29, 0.726));
 }
 .login p{
@@ -54,7 +54,7 @@ box-sizing: border-box;
   background-color: #000000;
 }
 
-.login-url{
+/* .login-url{
   text-align: center;
   border-radius: 5px;
   color: white;
@@ -66,4 +66,4 @@ box-sizing: border-box;
 .login-url:hover{
   text-decoration: underline;
   color: rgba(206, 75, 195, 0.849);
-}
+} */

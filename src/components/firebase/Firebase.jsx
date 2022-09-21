@@ -1,6 +1,7 @@
 import { faL } from "@fortawesome/free-solid-svg-icons";
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider ,signOut} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 // import { getAnalytics } from "firebase/analytics";
 const firebaseConfig = {
@@ -12,6 +13,8 @@ const firebaseConfig = {
   appId: "1:929486927697:web:38d707d700c7464e834570",
   measurementId: "G-RB0BM7LSH8"
 };
+
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -29,6 +32,7 @@ export const SignInWithGoogle = () => {
     localStorage.setItem("Email", email)
     localStorage.setItem("ProfilePic", profilePic)
     location.href="/librairie"
+     
     
   }).catch(error => {
     console.log(error);

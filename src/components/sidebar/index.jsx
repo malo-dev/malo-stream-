@@ -6,7 +6,7 @@ import { useEffect,useState } from 'react'
 import { MdFavorite } from "react-icons/md"
 import { FaSearch } from 'react-icons/fa'
 import { FaPlay } from 'react-icons/fa'
-import { FaGripfire } from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa'
 import { FaSignOutAlt } from 'react-icons/fa'
 import {IoLibrary} from "react-icons/io5"
 import { MdSpaceDashboard } from 'react-icons/md'
@@ -22,12 +22,12 @@ const Sidebar = () => {
     if (Token){
       api.setAccessToken(Token)
       
-      console.log(Token);
+      // console.log(Token);
       
-      api.getMe().then((user) => {
+      // api.getMe().then((user) => {
         
-        console.log(user);
-      })
+      //   console.log(user);
+      // })
       
     }
 
@@ -38,12 +38,12 @@ const Sidebar = () => {
         <img src={Picture} className='profile-img' alt="Profile-picture" />
       <div>
         <Sidebuton title="Search" to="/feed" icon={<FaSearch/> } />
-        <Sidebuton title="Trending" to="/trending" icon={<FaGripfire/>}  />
+        <Sidebuton title="Artists" to="/trending" icon={<FaUser/>}  />
         <Sidebuton title="Player" to="/player" icon={<FaPlay/>} />
-        <Sidebuton title="Favorites" to="/favorites" icon={<MdFavorite/>} />
+        <Sidebuton title="Albums" to="/favorites" icon={<MdFavorite/>} />
         <Sidebuton title="Library" to="/" icon={<IoLibrary/>}  />
       </div>
-      <Sidebuton title="Sign Out" to="/SignOut" icon={<FaSignOutAlt />} />
+      <Sidebuton title="Sign Out" to="/SignOut" icon={<FaSignOutAlt />}  />
     </div>
   )
 }

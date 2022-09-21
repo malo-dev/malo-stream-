@@ -26,7 +26,7 @@ const Player = () => {
         (res.json()).then(data => {
           
           setTracks(data.items)
-          const arrayitems = data.items[0]
+          const arrayitems = data?.items[0]
           setcurrentTracks(arrayitems.track)
           setItemsPLayer(arrayitems.track.album?.id)
            console.log(arrayitems.track?.album?.id);
